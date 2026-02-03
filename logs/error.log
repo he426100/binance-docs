@@ -1,0 +1,48 @@
+=== 错误日志 - 2026年 02月 03日 星期二 15:04:58 CST ===
+=== 错误日志 - 2026年 02月 03日 星期二 15:05:14 CST ===
+=== 错误日志 - 2026年 02月 03日 星期二 15:06:25 CST ===
+[2026年 02月 03日 星期二 15:06:30 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/account
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:06:40 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/borrow-and-repay
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:06:50 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/market-data
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:07:00 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/risk-data-stream
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:07:07 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/trade
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:07:13 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/trade-data-stream
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:08:37 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/transfer
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:08:38 CST] WARNING: Empty Markdown file: /data/downloads/wallet/binance-margin_trading-api-docs/markdown/docs/zh-CN/margin_trading/test.md
+
+=== 错误总结 ===
+下载失败: 7
+转换失败: 1
+总错误数: 8
+
+详细错误信息请查看上方日志。
+=== 错误日志 - 2026年 02月 03日 星期二 15:10:29 CST ===
+[2026年 02月 03日 星期二 15:11:04 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/account
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:11:49 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/borrow-and-repay
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:12:05 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/market-data
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:12:52 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/risk-data-stream
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:13:00 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/trade
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:13:05 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/trade-data-stream
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:13:57 CST] FAILED after 3 attempts: /docs/zh-CN/margin_trading/transfer
+  Error: 下载失败
+[2026年 02月 03日 星期二 15:13:59 CST] WARNING: Empty Markdown file: /data/downloads/wallet/binance-margin_trading-api-docs/markdown/docs/zh-CN/margin_trading/test.md
+
+=== 错误总结 ===
+下载失败: 7
+转换失败: 1
+总错误数: 8
+
+详细错误信息请查看上方日志。
