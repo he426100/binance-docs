@@ -481,6 +481,243 @@ graph TD
 12. POST /sapi/v1/asset/transfer (ISOLATED_MARGIN_MAIN) - 划转回现货
 ```
 
+## 🔔 实时数据推送（WebSocket）
+
+### 为什么使用 WebSocket？
+
+WebSocket 提供实时双向通信，相比 REST API 轮询具有以下优势：
+- **实时性**：毫秒级延迟，立即接收账户变化
+- **效率高**：减少 API 权重消耗，避免频繁轮询
+- **推送机制**：服务器主动推送，无需客户端反复查询
+
+**适用场景**：
+- 实时监控账户余额和风险率变化
+- 即时接收订单成交和状态更新
+- 接收保证金追缴预警通知
+
+### listenKey 管理
+
+#### 创建 listenKey（全仓）
+```
+POST /sapi/v1/userDataStream
+模块: margin_trading/trade-data-stream
+权重: 2 (UID)
+参数: 无需额外参数（默认全仓）
+返回: {"listenKey": "pqia91ma19a5s61cv6a81va65sdf19v8a65a1a5s61cv6a81va65sdf19v8a65a1"}
+用途: 创建全仓杠杆账户的 listenKey
+有效期: 60 分钟
+```
+
+#### 创建 listenKey（逐仓）
+```
+POST /sapi/v1/userDataStream/isolated
+模块: margin_trading/trade-data-stream
+权重: 2 (UID)
+参数: symbol (交易对，如 BTCUSDT)
+返回: {"listenKey": "pqia91ma19a5s61cv6a81va65sdf19v8a65a1a5s61cv6a81va65sdf19v8a65a1"}
+用途: 创建逐仓杠杆账户的 listenKey
+有效期: 60 分钟
+```
+
+#### 延期 listenKey
+```
+PUT /sapi/v1/userDataStream (全仓)
+PUT /sapi/v1/userDataStream/isolated (逐仓)
+模块: margin_trading/trade-data-stream
+权重: 2 (UID)
+参数: listenKey, symbol (仅逐仓需要)
+用途: 延长 listenKey 有效期
+建议: 每 30 分钟调用一次
+```
+
+#### 关闭 listenKey
+```
+DELETE /sapi/v1/userDataStream (全仓)
+DELETE /sapi/v1/userDataStream/isolated (逐仓)
+模块: margin_trading/trade-data-stream
+权重: 2 (UID)
+参数: listenKey, symbol (仅逐仓需要)
+用途: 关闭用户数据流
+```
+
+#### 订阅用户数据流
+```
+WebSocket 连接: wss://stream.binance.com:9443/ws/<listenKey>
+用途: 订阅账户更新、订单更新、风险通知
+```
+
+### 推送事件类型
+
+#### 1. 账户余额更新（outboundAccountPosition）
+**触发时机**：
+- 账户余额发生变化
+- 借贷操作完成
+- 资金划转完成
+
+**关键字段**：
+- `e`: 事件类型（outboundAccountPosition）
+- `E`: 事件时间
+- `B`: 余额数组（包含 free、locked、borrowed 等）
+
+#### 2. 订单更新（executionReport）
+**触发时机**：
+- 订单创建、成交、取消
+- 订单状态变化
+
+**关键字段**：
+- `e`: 事件类型（executionReport）
+- `s`: 交易对
+- `X`: 订单状态（NEW、FILLED、CANCELED 等）
+- `x`: 执行类型（NEW、TRADE、CANCELED 等）
+- `q`: 订单数量
+- `z`: 已成交数量
+
+#### 3. 保证金追缴通知（MARGIN_CALL）
+**触发时机**：
+- 风险率低于警戒线
+- 接近强平风险
+
+**关键字段**：
+- `e`: 事件类型（MARGIN_CALL）
+- `E`: 事件时间
+- `cw`: 全仓钱包余额
+- `p`: 持仓信息
+
+### 使用建议
+
+**何时使用 WebSocket**：
+- 需要实时监控账户余额和风险率（秒级更新）
+- 需要即时接收订单成交通知
+- 需要接收保证金追缴预警
+- 高频交易场景
+
+**何时使用 REST API**：
+- 一次性查询历史数据
+- 低频率的状态查询（如每分钟一次）
+- 初始化时获取完整账户状态
+- 连接断开后同步最新状态
+
+### 关键注意事项
+
+1. **连接限制**：
+   - 每秒最多 5 个消息（包括 PING/PONG 帧）
+   - 单连接最多订阅 1024 个 Streams
+   - 每 IP 每 5 分钟最多 300 次连接请求
+
+2. **listenKey 管理**：
+   - listenKey 有效期 60 分钟
+   - 需要定期续期（建议每 30 分钟续期一次）
+   - 过期后会自动断开连接
+
+3. **与 REST API 配合**：
+   - WebSocket 用于实时推送，REST API 用于主动查询
+   - 连接断开后使用 REST API 同步最新状态
+   - 建议同时使用两种方式确保数据完整性
+
+4. **断线重连**：
+   - 检测到连接断开后立即重连
+   - 重连后重新创建 listenKey
+   - 使用 REST API 同步期间错过的数据
+
+## 📋 交易对配置查询（exchangeInfo）
+
+### 接口说明
+
+```
+GET /api/v3/exchangeInfo
+模块: 现货市场数据（适用于杠杆交易）
+权重: 20 (IP)
+参数: symbol (可选，查询单个交易对)
+用途: 查询交易对配置、过滤器规则、交易限制
+必需性: 推荐（下单前查询，避免参数错误）
+```
+
+### 使用场景
+
+1. **下单前验证**：
+   - 确认交易对是否支持杠杆交易
+   - 获取价格、数量、金额的最小/最大限制
+   - 确认支持的订单类型
+
+2. **参数校验**：
+   - 根据 filters 校验订单参数
+   - 避免因参数不符合规则导致下单失败
+
+3. **权限检查**：
+   - 确认账户是否有交易权限
+   - 确认交易对当前是否可交易
+
+### 关键返回字段
+
+#### isMarginTradingAllowed
+- **类型**: Boolean
+- **说明**: 是否支持杠杆交易
+- **用途**: 确认交易对是否可用于全仓/逐仓杠杆
+
+#### filters（过滤器）
+
+1. **PRICE_FILTER**：
+   - `minPrice`: 最小价格
+   - `maxPrice`: 最大价格
+   - `tickSize`: 价格步进
+
+2. **LOT_SIZE**：
+   - `minQty`: 最小数量
+   - `maxQty`: 最大数量
+   - `stepSize`: 数量步进
+
+3. **NOTIONAL**：
+   - `minNotional`: 最小成交金额
+   - `maxNotional`: 最大成交金额
+   - 计算公式: price × quantity ≥ minNotional
+
+4. **MARKET_LOT_SIZE**：
+   - 市价单的数量限制
+   - `minQty`: 最小数量
+   - `maxQty`: 最大数量
+
+#### orderTypes
+- **说明**: 支持的订单类型列表
+- **常见类型**: LIMIT, MARKET, STOP_LOSS, STOP_LOSS_LIMIT, TAKE_PROFIT, TAKE_PROFIT_LIMIT
+
+#### permissions / permissionSets
+- **说明**: 交易对的交易权限
+- **常见值**: SPOT, MARGIN
+- **用途**: 确认是否支持杠杆交易
+
+### 调用时机
+
+**推荐调用时机**：
+1. 应用启动时：缓存所有交易对配置
+2. 下单前：验证订单参数是否符合规则
+3. 定期更新：每小时或每天更新一次缓存
+
+**不推荐**：
+- 每次下单前都调用（浪费权重）
+- 不缓存配置信息（增加延迟）
+
+### 关键注意事项
+
+1. **配置缓存**：
+   - 建议缓存 exchangeInfo 结果，避免频繁查询
+   - 缓存时间建议 1-24 小时
+   - 下单失败时重新查询最新配置
+
+2. **参数精度**：
+   - 价格和数量必须符合 tickSize 和 stepSize
+   - 使用 Decimal 类型避免浮点数精度问题
+   - 示例: `price = round(price / tickSize) * tickSize`
+
+3. **动态规则**：
+   - 交易对配置可能随时变化
+   - 下单失败时检查是否因配置变更
+   - 关注币安公告了解规则调整
+
+4. **与杠杆接口配合**：
+   - exchangeInfo 提供通用配置
+   - `GET /sapi/v1/margin/allPairs` 提供杠杆专属配置
+   - 两者结合使用获取完整信息
+
 ## ⚠️ 关键注意事项
 
 ### 权限要求
@@ -579,6 +816,37 @@ graph TD
 - `GET /sapi/v1/margin/myTrades` - 成交记录
 - `GET /sapi/v1/margin/allOrders` - 所有订单
 - `GET /sapi/v1/margin/openOrders` - 当前挂单
+
+### 我想实时监控账户状态
+
+**WebSocket 方式（推荐）**:
+1. `POST /sapi/v1/userDataStream` - 创建 listenKey（全仓）
+2. `POST /sapi/v1/userDataStream/isolated` - 创建 listenKey（逐仓）
+3. 连接 WebSocket: `wss://stream.binance.com:9443/ws/<listenKey>`
+4. 接收实时推送：账户余额、订单更新、风险通知
+
+**REST API 轮询方式**:
+- 全仓: `GET /sapi/v1/margin/account` - 定期查询账户状态
+- 逐仓: `GET /sapi/v1/margin/isolated/account` - 定期查询账户状态
+
+**使用建议**:
+- 高频监控（秒级）：使用 WebSocket
+- 低频监控（分钟级）：使用 REST API 轮询
+- 关键操作后：使用 REST API 主动查询确认
+
+### 我想查询交易对配置
+
+**必需接口**:
+- `GET /api/v3/exchangeInfo` - 查询交易对配置和过滤器规则
+
+**推荐接口**:
+- `GET /sapi/v1/margin/allPairs` - 查询杠杆交易对专属配置
+- `GET /sapi/v1/margin/allAssets` - 查询杠杆资产配置
+
+**调用时机**:
+- 应用启动时缓存配置
+- 下单前验证参数
+- 下单失败时重新查询
 
 ---
 
