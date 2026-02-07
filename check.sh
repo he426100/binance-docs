@@ -68,6 +68,19 @@ print_info() {
 }
 
 ################################################################################
+# 函数：规范化 URL（补齐域名）
+################################################################################
+normalize_url() {
+    local url="$1"
+    # 如果 URL 不以 http:// 或 https:// 开头，添加域名前缀
+    if [[ ! "$url" =~ ^https?:// ]]; then
+        echo "https://developers.binance.com${url}"
+    else
+        echo "$url"
+    fi
+}
+
+################################################################################
 # 函数：从 URL 提取本地路径
 ################################################################################
 get_local_path() {
@@ -101,12 +114,12 @@ check_dependencies() {
 parse_urls() {
     print_section "解析 URL 列表"
 
-    # 读取所有 URL（包括重复）
-    mapfile -t ALL_URLS < <(jq -r '.[]' "${LINKS_FILE}")
+    # 读取所有 URL（包括重复）并规范化
+    mapfile -t ALL_URLS < <(jq -r '.[]' "${LINKS_FILE}" | while read -r url; do normalize_url "$url"; done)
     TOTAL_URLS=${#ALL_URLS[@]}
 
-    # 读取唯一 URL
-    mapfile -t UNIQUE_URL_LIST < <(jq -r '.[]' "${LINKS_FILE}" | sort -u)
+    # 读取唯一 URL 并规范化
+    mapfile -t UNIQUE_URL_LIST < <(jq -r '.[]' "${LINKS_FILE}" | while read -r url; do normalize_url "$url"; done | sort -u)
     UNIQUE_URLS=${#UNIQUE_URL_LIST[@]}
 
     local duplicate_count=$((TOTAL_URLS - UNIQUE_URLS))

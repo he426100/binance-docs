@@ -164,13 +164,26 @@ init_environment() {
 }
 
 ################################################################################
+# 函数：规范化 URL（补齐域名）
+################################################################################
+normalize_url() {
+    local url="$1"
+    # 如果 URL 不以 http:// 或 https:// 开头，添加域名前缀
+    if [[ ! "$url" =~ ^https?:// ]]; then
+        echo "https://developers.binance.com${url}"
+    else
+        echo "$url"
+    fi
+}
+
+################################################################################
 # 函数：解析 URL 列表
 ################################################################################
 parse_urls() {
     print_step "[2/6] 解析 links.json"
 
-    # 读取并去重 URL
-    mapfile -t URLS < <(jq -r '.[]' "${LINKS_FILE}" | sort -u)
+    # 读取、规范化并去重 URL
+    mapfile -t URLS < <(jq -r '.[]' "${LINKS_FILE}" | while read -r url; do normalize_url "$url"; done | sort -u)
     TOTAL_URLS=${#URLS[@]}
 
     if [ ${TOTAL_URLS} -eq 0 ]; then
