@@ -12,7 +12,7 @@
 - `Start-User-Data-Stream.md` - 启动用户数据流
 - `Keepalive-User-Data-Stream.md` - 保持用户数据流活跃
 - `Close-User-Data-Stream.md` - 关闭用户数据流
-- `Connect.md` - 连接说明（⚠️ 空文件）
+- `Connect.md` - 连接说明
 
 ### 风控事件
 - `Event-Margin-Call.md` - 追加保证金事件
@@ -126,11 +126,10 @@ ws.onmessage = (event) => {
 
 ## ⚠️ 注意事项
 
-1. **空文件警告**: `Connect.md` 为空
-2. **listenKey 管理**: 需每 30 分钟续期一次
-3. **风险响应**: 收到 MARGIN_CALL 应立即处理
-4. **多账户**: 全仓和逐仓需分别订阅
-5. **延迟容忍**: 极端行情可能有推送延迟
+1. **listenKey 管理**: 需每 30 分钟续期一次
+2. **风险响应**: 收到 MARGIN_CALL 应立即处理
+3. **多账户**: 全仓和逐仓需分别订阅
+4. **延迟容忍**: 极端行情可能有推送延迟
 
 ## 🚨 风险处理流程
 
@@ -213,6 +212,5 @@ DELETE /sapi/v1/margin/listen-key
 ---
 
 **文件数量**: 6
-**有效文件**: 5
-**空文件**: 1
+**有效文件**: 6
 **最后更新**: 2026-02-07

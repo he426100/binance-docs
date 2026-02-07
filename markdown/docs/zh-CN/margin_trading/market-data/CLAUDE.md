@@ -19,7 +19,7 @@
 
 ### 价格与指数
 - `Query-Margin-PriceIndex.md` - 查询价格指数
-- `Cross-margin-collateral-ratio.md` - 全仓抵押率（⚠️ 空文件）
+- `Cross-margin-collateral-ratio.md` - 全仓抵押率
 
 ### 杠杆配置
 - `Query-Isolated-Margin-Tier-Data.md` - 查询逐仓杠杆分层数据
@@ -96,11 +96,10 @@ GET /sapi/v1/margin/isolatedMarginTier?symbol=BTCUSDT
 
 ## ⚠️ 注意事项
 
-1. **空文件警告**: `Cross-margin-collateral-ratio.md` 为空
-2. **数据时效性**: 静态数据建议定期更新缓存
-3. **交易对状态**: 注意 `isBorrowable` 和 `isTradable` 标志
-4. **杠杆限制**: 不同 VIP 等级有不同的杠杆倍数限制
-5. **上下架通知**: 关注上下架计划，及时调整策略
+1. **数据时效性**: 静态数据建议定期更新缓存
+2. **交易对状态**: 注意 `isBorrowable` 和 `isTradable` 标志
+3. **杠杆限制**: 不同 VIP 等级有不同的杠杆倍数限制
+4. **上下架通知**: 关注上下架计划，及时调整策略
 
 ## 📊 数据结构
 
@@ -175,6 +174,5 @@ GET /sapi/v1/margin/isolatedMarginTier?symbol=BTCUSDT
 ---
 
 **文件数量**: 13
-**有效文件**: 12
-**空文件**: 1
+**有效文件**: 13
 **最后更新**: 2026-02-07

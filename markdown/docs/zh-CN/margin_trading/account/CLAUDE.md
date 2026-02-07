@@ -16,7 +16,7 @@
 ### 账户配置
 - `Enable-Isolated-Margin-Account.md` - 启用逐仓账户
 - `Disable-Isolated-Margin-Account.md` - 禁用逐仓账户
-- `Adjust-Cross-Margin-Max-Leverage.md` - 调整全仓最大杠杆（⚠️ 空文件）
+- `Adjust-Cross-Margin-Max-Leverage.md` - 调整全仓最大杠杆
 
 ### 费率查询
 - `Query-Cross-Margin-Fee-Data.md` - 查询全仓费率数据
@@ -94,10 +94,9 @@ GET /sapi/v1/margin/crossMarginData
 
 ## ⚠️ 注意事项
 
-1. **空文件警告**: `Adjust-Cross-Margin-Max-Leverage.md` 为空，可能接口已下线
-2. **杠杆调整**: 需满足风险率要求（3x: 1.5, 5x: 1.25）
-3. **逐仓限制**: 每个账户最多可启用的逐仓交易对数量有限
-4. **费率变化**: 费率数据可能实时变化，建议定期查询
+1. **杠杆调整**: 需满足风险率要求（3x: 1.5, 5x: 1.25）
+2. **逐仓限制**: 每个账户最多可启用的逐仓交易对数量有限
+3. **费率变化**: 费率数据可能实时变化，建议定期查询
 
 ## 🔄 更新频率
 
@@ -108,6 +107,5 @@ GET /sapi/v1/margin/crossMarginData
 ---
 
 **文件数量**: 11
-**有效文件**: 10
-**空文件**: 1
+**有效文件**: 11
 **最后更新**: 2026-02-07

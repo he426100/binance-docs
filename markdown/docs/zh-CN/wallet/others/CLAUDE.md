@@ -1,5 +1,7 @@
 # Wallet Others 模块 - AI 上下文
 
+**导航**: [根目录](../../../../../CLAUDE.md) > [wallet](../../CLAUDE.md) > others
+
 > **模块**: 其他功能
 > **路径**: `markdown/docs/zh-CN/wallet/others/`
 > **最后更新**: 2026-02-07

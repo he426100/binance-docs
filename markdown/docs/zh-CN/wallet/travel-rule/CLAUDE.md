@@ -1,5 +1,7 @@
 # Wallet Travel-Rule 模块 - AI 上下文
 
+**导航**: [根目录](../../../../../CLAUDE.md) > [wallet](../../CLAUDE.md) > travel-rule
+
 > **模块**: 旅行规则合规
 > **路径**: `markdown/docs/zh-CN/wallet/travel-rule/`
 > **最后更新**: 2026-02-07

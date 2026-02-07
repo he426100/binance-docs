@@ -1,5 +1,7 @@
 # Wallet Capital 模块 - AI 上下文
 
+**导航**: [根目录](../../../../../CLAUDE.md) > [wallet](../../CLAUDE.md) > capital
+
 > **模块**: 充提币管理
 > **路径**: `markdown/docs/zh-CN/wallet/capital/`
 > **最后更新**: 2026-02-07
