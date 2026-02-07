@@ -46,3 +46,128 @@
 总错误数: 8
 
 详细错误信息请查看上方日志。
+=== 错误日志 - 2026年 02月 07日 星期六 10:35:14 CST ===
+[2026年 02月 07日 星期六 10:35:18 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/account
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:35:22 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/account/account-api-trading-status
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:35:26 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/account/account-info
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:35:30 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/account/account-status
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:35:35 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/account/api-key-permission
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:35:39 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/account/daily-account-snapshoot
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:35:43 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/account/disable-fast-withdraw-switch
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:35:47 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/account/enable-fast-withdraw-switch
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:35:51 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:35:55 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/asset-detail
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:35:59 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/assets-can-convert-bnb
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:03 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/assets-divided-record
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:07 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/cloud-mining-payment-and-refund-history
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:11 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/dust-convert
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:15 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/dust-convertible-assets
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:19 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/dust-log
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:23 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/dust-transfer
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:27 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/funding-wallet
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:31 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/open-symbol-list
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:35 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/query-user-delegation
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:39 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/query-user-universal-transfer
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:43 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/query-user-wallet-balance
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:47 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/spot-delist-schedule
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:51 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/Toggle-BNB-Burn-On-Spot-Trade-And-Margin-Interest
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:36:56 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/trade-fee
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:00 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/user-assets
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:04 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/asset/user-universal-transfer
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:08 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/capital
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:12 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/capital/all-coins-info
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:16 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/capital/deposite-address
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:20 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/capital/deposite-history
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:24 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/capital/fetch-deposit-address-list-with-network
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:28 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/capital/fetch-withdraw-address
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:32 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/capital/fetch-withdraw-quota
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:36 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/capital/one-click-arrival-deposite-apply
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:40 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/capital/withdraw
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:44 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/capital/withdraw-history
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:48 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/change-log
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:52 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/contact-us
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:37:56 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/error-code
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:00 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/general-info
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:04 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/Introduction
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:08 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/others
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:12 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/others/delist-schedule
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:16 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/others/system-status
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:20 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/quick-start
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:25 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:29 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/address-verification-list
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:33 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/appendix
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:37 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/broker-deposit-provide-info
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:41 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/broker-withdraw
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:45 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/deposit-history
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:49 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/deposit-history-v2
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:53 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/deposit-provide-info
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:38:57 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/deposit-provide-info-v2
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:39:01 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/deposit-questionnaire
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:39:05 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/onboarded-vasp-list
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:39:09 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/questionnaire-requirements
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:39:13 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/withdraw
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:39:17 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/withdraw-history
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:39:21 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/withdraw-history-v2
+  Error: 下载失败
+[2026年 02月 07日 星期六 10:39:25 CST] FAILED after 3 attempts: /docs/zh-CN/wallet/travel-rule/withdraw-questionnaire
+  Error: 下载失败

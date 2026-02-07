@@ -19,7 +19,7 @@ NC='\033[0m' # No Color
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HTML_DIR="${SCRIPT_DIR}/html"
 MARKDOWN_DIR="${SCRIPT_DIR}/markdown"
-LINKS_FILE="${SCRIPT_DIR}/links.json"
+LINKS_FILE=""  # 将通过命令行参数设置
 
 # 统计变量
 TOTAL_URLS=0
@@ -397,14 +397,16 @@ show_help() {
 用法: $0 [选项]
 
 选项:
-  -v, --verbose     显示详细检查信息
-  -d, --duplicates  显示重复 URL 详情
-  -h, --help        显示此帮助信息
+  -v, --verbose        显示详细检查信息
+  -d, --duplicates     显示重复 URL 详情
+  -l, --links-file FILE 指定 links.json 文件路径（默认: ./links.json）
+  -h, --help           显示此帮助信息
 
 示例:
-  $0                # 基本检查
-  $0 -v             # 详细模式
-  $0 -v -d          # 详细模式 + 重复 URL 详情
+  $0                   # 基本检查
+  $0 -v                # 详细模式
+  $0 -v -d             # 详细模式 + 重复 URL 详情
+  $0 -l custom.json    # 使用自定义 links 文件
 
 EOF
 }
@@ -427,6 +429,10 @@ main() {
                 SHOW_DUPLICATES=true
                 shift
                 ;;
+            -l|--links-file)
+                LINKS_FILE="$2"
+                shift 2
+                ;;
             -h|--help)
                 show_help
                 exit 0
@@ -438,6 +444,11 @@ main() {
                 ;;
         esac
     done
+
+    # 设置默认值
+    if [ -z "${LINKS_FILE}" ]; then
+        LINKS_FILE="${SCRIPT_DIR}/links.json"
+    fi
 
     # 执行检查
     print_header

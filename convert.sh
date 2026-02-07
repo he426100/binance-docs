@@ -21,7 +21,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HTML_DIR="${SCRIPT_DIR}/html"
 MARKDOWN_DIR="${SCRIPT_DIR}/markdown"
 LOGS_DIR="${SCRIPT_DIR}/logs"
-LINKS_FILE="${SCRIPT_DIR}/links.json"
+LINKS_FILE=""  # 将通过命令行参数设置
 HTML2MD_BIN="${HOME}/go/bin/html2markdown"
 
 # 日志文件
@@ -76,6 +76,7 @@ show_help() {
   -i, --incremental     增量更新模式（默认）- 只下载有更新的文件
   -s, --skip-existing   跳过已存在的文件 - 只下载缺失的文件
   -f, --force           强制模式 - 重新下载所有文件
+  -l, --links-file FILE 指定 links.json 文件路径（默认: ./links.json）
   -h, --help            显示此帮助信息
 
 模式说明:
@@ -99,6 +100,7 @@ show_help() {
   $0 -i                 # 增量更新
   $0 -s                 # 只下载缺失的文件
   $0 -f                 # 强制重新下载所有文件
+  $0 -l custom.json     # 使用自定义 links 文件
 
 EOF
 }
@@ -565,6 +567,10 @@ main() {
                 MODE="force"
                 shift
                 ;;
+            -l|--links-file)
+                LINKS_FILE="$2"
+                shift 2
+                ;;
             -h|--help)
                 show_help
                 exit 0
@@ -576,6 +582,11 @@ main() {
                 ;;
         esac
     done
+
+    # 设置默认值
+    if [ -z "${LINKS_FILE}" ]; then
+        LINKS_FILE="${SCRIPT_DIR}/links.json"
+    fi
 
     local start_time=$(date +%s)
 
