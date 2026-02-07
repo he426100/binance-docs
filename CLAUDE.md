@@ -32,10 +32,11 @@
 
 #### 1.1 查询现货余额
 ```
-GET /sapi/v1/asset/getUserAsset
+POST /sapi/v3/asset/getUserAsset
 模块: wallet/asset
 权重: 5 (IP)
 用途: 确认现货账户有足够资金
+注意: 接口为 POST 方法，路径为 v3 版本
 ```
 
 #### 1.2 划转到全仓杠杆账户
@@ -43,7 +44,11 @@ GET /sapi/v1/asset/getUserAsset
 POST /sapi/v1/asset/transfer
 模块: wallet/asset
 权重: 900 (UID)
-参数: type=MAIN_MARGIN, asset, amount
+必需参数: type, asset, amount, timestamp
+条件必需参数:
+  - fromSymbol: 当 type 为 ISOLATEDMARGIN_MARGIN 或 ISOLATEDMARGIN_ISOLATEDMARGIN 时必需
+  - toSymbol: 当 type 为 MARGIN_ISOLATEDMARGIN 或 ISOLATEDMARGIN_ISOLATEDMARGIN 时必需
+可选参数: recvWindow
 用途: 将现货资金转入全仓杠杆账户
 前置条件: API Key 需开通"允许万向划转"权限
 ```
@@ -56,7 +61,13 @@ GET /sapi/v1/margin/account
 模块: margin_trading/account
 权重: 10 (IP)
 用途: 查看账户余额、风险率、可用资产
-关键字段: marginLevel（风险率）、borrowEnabled、tradeEnabled
+关键返回字段:
+  - marginLevel (风险率)
+  - borrowEnabled, tradeEnabled (账户开关)
+  - accountType (MARGIN_1=Classic, MARGIN_2=Pro)
+  - collateralMarginLevel (抵押保证金率)
+  - totalAssetOfBtc, totalLiabilityOfBtc (总资产/负债)
+  - userAssets[] (各资产详情: free, locked, borrowed, interest)
 ```
 
 #### 2.2 查询支持的杠杆资产
@@ -93,9 +104,14 @@ GET /sapi/v1/margin/maxBorrowable
 POST /sapi/v1/margin/borrow-repay
 模块: margin_trading/borrow-and-repay
 权重: 1500 (UID)
-参数: asset, isIsolated=FALSE, amount, type=BORROW
+必需参数: asset, isIsolated, amount, type, timestamp
+条件必需参数: symbol (当 isIsolated=TRUE 时必需)
+可选参数: recvWindow
 用途: 借入资产用于杠杆交易
-注意: 开始计息，需定期还款
+注意:
+  - 开始计息，需定期还款
+  - 同一资产不能并发借还操作
+  - 建议操作间隔 >100ms
 ```
 
 ### 阶段 4: 交易执行（核心）
@@ -105,8 +121,23 @@ POST /sapi/v1/margin/borrow-repay
 POST /sapi/v1/margin/order
 模块: margin_trading/trade
 权重: 6 (UID)
-参数: symbol, side, type, quantity, price (限价单), isIsolated=FALSE
-可选参数: sideEffectType (NO_SIDE_EFFECT/MARGIN_BUY/AUTO_REPAY/AUTO_BORROW_REPAY)
+必需参数: symbol, side, type, timestamp
+条件必需参数:
+  - quantity 或 quoteOrderQty (二选一)
+  - price (限价单必需)
+  - stopPrice (止损/止盈单必需)
+可选参数:
+  - isIsolated (默认 FALSE)
+  - sideEffectType (默认 NO_SIDE_EFFECT)
+  - timeInForce (GTC/IOC/FOK)
+  - newOrderRespType (ACK/RESULT/FULL，默认 FULL)
+  - icebergQty (冰山订单数量)
+  - selfTradePreventionMode (自成交防止模式)
+  - autoRepayAtCancel (撤单后是否自动还款，默认 true)
+  - newClientOrderId (客户自定义订单ID)
+  - recvWindow
+返回字段 (newOrderRespType=FULL 时):
+  - marginBuyBorrowAmount, marginBuyBorrowAsset (仅在实际发生借款时返回)
 用途: 执行杠杆交易
 ```
 
@@ -174,7 +205,12 @@ GET /sapi/v1/margin/borrow-repay
 模块: margin_trading/borrow-and-repay
 权重: 10 (IP)
 参数: type=BORROW, asset
+可选参数: isolatedSymbol, startTime, endTime
 用途: 查看当前借款和利息
+时间范围限制:
+  - 传 asset: 最大 30 天
+  - 不传 asset: 最大 7 天
+  - 默认返回最近 7 天
 ```
 
 #### 5.2 执行还币
@@ -182,8 +218,11 @@ GET /sapi/v1/margin/borrow-repay
 POST /sapi/v1/margin/borrow-repay
 模块: margin_trading/borrow-and-repay
 权重: 1500 (UID)
-参数: asset, isIsolated=FALSE, amount, type=REPAY
+必需参数: asset, isIsolated, amount, type, timestamp
+条件必需参数: symbol (当 isIsolated=TRUE 时必需)
+可选参数: recvWindow
 用途: 归还借款和利息
+注意: 遵循"先还利息再还本金"原则
 ```
 
 ### 阶段 6: 资金转出
@@ -212,10 +251,11 @@ POST /sapi/v1/asset/transfer
 
 #### 1.1 查询现货余额
 ```
-GET /sapi/v1/asset/getUserAsset
+POST /sapi/v3/asset/getUserAsset
 模块: wallet/asset
 权重: 5 (IP)
 用途: 确认现货账户有足够资金
+注意: 接口为 POST 方法，路径为 v3 版本
 ```
 
 #### 1.2 划转到逐仓账户（自动激活）
@@ -223,7 +263,9 @@ GET /sapi/v1/asset/getUserAsset
 POST /sapi/v1/asset/transfer
 模块: wallet/asset
 权重: 900 (UID)
-参数: type=MAIN_ISOLATED_MARGIN, asset, amount, toSymbol (交易对)
+必需参数: type, asset, amount, timestamp
+条件必需参数: toSymbol (交易对，逐仓转入时必需)
+可选参数: fromSymbol, recvWindow
 用途: 将资金转入指定交易对的逐仓账户
 注意: 首次转入会自动激活该交易对的逐仓账户
 ```
@@ -245,9 +287,16 @@ POST /sapi/v1/margin/isolated/account
 GET /sapi/v1/margin/isolated/account
 模块: margin_trading/account
 权重: 10 (IP)
-参数: symbols (可选，最多5个)
+参数: symbols (可选，最多5个交易对)
 用途: 查看逐仓账户余额、风险率
-关键字段: marginLevel、enabled、tradeEnabled
+关键返回字段:
+  - assets[] (各交易对账户信息)
+  - marginLevel (风险率)
+  - marginLevelStatus (EXCESSIVE/NORMAL/MARGIN_CALL/PRE_LIQUIDATION/FORCE_LIQUIDATION)
+  - marginRatio (保证金率)
+  - indexPrice (指数价格)
+  - liquidatePrice (强平价格)
+  - enabled, tradeEnabled (账户开关)
 ```
 
 #### 2.2 查询支持的逐仓交易对
@@ -335,8 +384,10 @@ GET /sapi/v1/margin/maxTransferable
 POST /sapi/v1/asset/transfer
 模块: wallet/asset
 权重: 900 (UID)
-参数: type=ISOLATED_MARGIN_MAIN, asset, amount, fromSymbol (交易对)
-用途: 将资金从逐仓转回现货
+必需参数: type, asset, amount, timestamp
+条件必需参数: fromSymbol (交易对，逐仓转出时必需)
+可选参数: recvWindow
+用途: 将资金从逐仓转回现货账户
 ```
 
 ## 📊 接口依赖关系图
@@ -401,7 +452,7 @@ graph TD
 ```
 1. [可选] GET /sapi/v1/margin/allAssets - 查询支持的资产
 2. [可选] GET /sapi/v1/margin/allPairs - 查询支持的交易对
-3. GET /sapi/v1/asset/getUserAsset - 查询现货余额
+3. POST /sapi/v3/asset/getUserAsset - 查询现货余额
 4. POST /sapi/v1/asset/transfer (MAIN_MARGIN) - 划转到全仓
 5. GET /sapi/v1/margin/account - 查询全仓账户
 6. [如需借币] GET /sapi/v1/margin/maxBorrowable - 查询可借额度
@@ -417,7 +468,7 @@ graph TD
 
 ```
 1. [可选] GET /sapi/v1/margin/isolated/allPairs - 查询支持的逐仓交易对
-2. GET /sapi/v1/asset/getUserAsset - 查询现货余额
+2. POST /sapi/v3/asset/getUserAsset - 查询现货余额
 3. POST /sapi/v1/asset/transfer (MAIN_ISOLATED_MARGIN) - 划转到逐仓（首次转入自动激活）
 4. [仅在账户被停用时] POST /sapi/v1/margin/isolated/account - 重新启用逐仓账户
 5. GET /sapi/v1/margin/isolated/account - 查询逐仓账户
@@ -518,7 +569,7 @@ graph TD
 ### 我想查询账户状态
 - 全仓: `GET /sapi/v1/margin/account`
 - 逐仓: `GET /sapi/v1/margin/isolated/account`
-- 现货: `GET /sapi/v1/asset/getUserAsset`
+- 现货: `POST /sapi/v3/asset/getUserAsset`
 
 ### 我想查询借贷记录
 - `GET /sapi/v1/margin/borrow-repay` (type=BORROW)

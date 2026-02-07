@@ -92,7 +92,7 @@ POST /sapi/v1/asset/dust-convert/convert
 
 ### 资产查询
 ```
-POST /sapi/v1/asset/getUserAsset
+POST /sapi/v3/asset/getUserAsset
 权重: 5 (IP)
 ```
 
@@ -168,7 +168,7 @@ GET /sapi/v1/asset/tradeFee
 ### 杠杆交易前准备
 ```bash
 # 1. 查询现货余额
-GET /sapi/v1/asset/getUserAsset
+POST /sapi/v3/asset/getUserAsset
 
 # 2. 划转到杠杆账户
 POST /sapi/v1/asset/transfer

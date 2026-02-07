@@ -66,7 +66,7 @@ GET /sapi/v1/capital/deposit/address
 ### 提币操作
 ```
 POST /sapi/v1/capital/withdraw/apply
-权重: 600 (UID)
+权重: 900 (UID)
 认证: USER_DATA
 ```
 
