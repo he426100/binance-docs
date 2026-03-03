@@ -236,3 +236,12 @@
 总错误数: 1
 
 详细错误信息请查看上方日志。
+=== 错误日志 - 2026年 03月 02日 星期一 18:02:25 CST ===
+[2026年 03月 02日 星期一 18:11:01 CST] WARNING: Empty Markdown file: /data/downloads/wallet/binance-margin_trading-api-docs/markdown/docs/zh-CN/margin_trading/test.md
+
+=== 错误总结 ===
+下载失败: 0
+转换失败: 1
+总错误数: 1
+
+详细错误信息请查看上方日志。
