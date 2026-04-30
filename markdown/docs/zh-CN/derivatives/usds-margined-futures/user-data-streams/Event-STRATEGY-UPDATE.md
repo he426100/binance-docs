@@ -29,6 +29,10 @@
 - 8014: 不符合 Futures Trading Quantitative Rules，策略终止
 - 8015: 无仓位或是仓位已经爆仓
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-STRATEGY-UPDATE#url-path "URL PATH的直接链接")
+
+`/private`
+
 ## 事件类型[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-STRATEGY-UPDATE#%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B "事件类型的直接链接")
 
 `STRATEGY_UPDATE`

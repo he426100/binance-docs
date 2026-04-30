@@ -34,6 +34,10 @@
   - COIN\_SWAP\_WITHDRAW
 - 字段"bc"代表了钱包余额的改变量，即 balance change，但注意其不包含仓位盈亏及交易手续费。
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-Balance-and-Position-Update#url-path "URL PATH的直接链接")
+
+`/private`
+
 ## 事件类型[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-Balance-and-Position-Update#%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B "事件类型的直接链接")
 
 `ACCOUNT_UPDATE`

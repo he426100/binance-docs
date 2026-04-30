@@ -2,7 +2,7 @@
 
 ## 接口描述[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/trade/rest-api/Query-Algo-Order#%E6%8E%A5%E5%8F%A3%E6%8F%8F%E8%BF%B0 "接口描述的直接链接")
 
-查询条件订单状态
+查询条件订单（Algo / Conditional Order）的状态，包括 U 本位合约的止盈止损（TP/SL, Take Profit / Stop Loss）与追踪止损（Trailing Stop）订单。
 
 - 请注意，如果订单满足如下条件，不会被查询到：
   

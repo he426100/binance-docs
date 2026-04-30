@@ -10,6 +10,10 @@
 - 只有正在连接中的有效`listenKey`过期时才会收到此消息
 - 收到此消息后 user data stream 将不再更新，直到用户使用新的有效的`listenKey`
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-User-Data-Stream-Expired#url-path "URL PATH的直接链接")
+
+`/private`
+
 ## 事件类型[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-User-Data-Stream-Expired#%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B "事件类型的直接链接")
 
 `listenKeyExpired`

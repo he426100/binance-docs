@@ -4,6 +4,10 @@
 
 orderbook 的变化部分，包含RPI订单，推送间隔 500 毫秒
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Diff-Book-Depth-Streams-RPI#url-path "URL PATH的直接链接")
+
+`/public`
+
 ## Stream Name[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Diff-Book-Depth-Streams-RPI#stream-name "Stream Name的直接链接")
 
 `<symbol>@rpiDepth@500ms`

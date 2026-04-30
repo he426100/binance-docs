@@ -9,8 +9,8 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Binance Open Platform" href="/docs/zh-CN/opensearch.xml"><link rel="stylesheet" href="/docs/zh-CN/assets/css/styles.65c537d6.css">
-<script src="/docs/zh-CN/assets/js/runtime~main.21492072.js" defer="defer"></script>
-<script src="/docs/zh-CN/assets/js/main.3ead1c0d.js" defer="defer"></script>
+<script src="/docs/zh-CN/assets/js/runtime~main.d329ca17.js" defer="defer"></script>
+<script src="/docs/zh-CN/assets/js/main.9507de5d.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M86QHGF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -72,7 +72,7 @@
 
 
 
-<table><thead><tr><th>名称</th><th>类型</th><th>是否必需</th><th>描述</th></tr></thead><tbody><tr><td>pair</td><td>STRING</td><td>YES</td><td>BTCUSDT</td></tr><tr><td>contractType</td><td>ENUM</td><td>YES</td><td>CURRENT_QUARTER, NEXT_QUARTER, PERPETUAL</td></tr><tr><td>period</td><td>ENUM</td><td>YES</td><td>&quot;5m&quot;,&quot;15m&quot;,&quot;30m&quot;,&quot;1h&quot;,&quot;2h&quot;,&quot;4h&quot;,&quot;6h&quot;,&quot;12h&quot;,&quot;1d&quot;</td></tr><tr><td>limit</td><td>LONG</td><td>YES</td><td>Default 30,Max 500</td></tr><tr><td>startTime</td><td>LONG</td><td>NO</td><td></td></tr><tr><td>endTime</td><td>LONG</td><td>NO</td><td></td></tr></tbody></table>
+<table><thead><tr><th>名称</th><th>类型</th><th>是否必需</th><th>描述</th></tr></thead><tbody><tr><td>pair</td><td>STRING</td><td>YES</td><td>BTCUSDT</td></tr><tr><td>contractType</td><td>ENUM</td><td>YES</td><td>CURRENT_QUARTER, NEXT_QUARTER, PERPETUAL</td></tr><tr><td>period</td><td>ENUM</td><td>YES</td><td>&quot;5m&quot;,&quot;15m&quot;,&quot;30m&quot;,&quot;1h&quot;,&quot;2h&quot;,&quot;4h&quot;,&quot;6h&quot;,&quot;12h&quot;,&quot;1d&quot;</td></tr><tr><td>limit</td><td>LONG</td><td>NO</td><td>Default 30,Max 500</td></tr><tr><td>startTime</td><td>LONG</td><td>NO</td><td></td></tr><tr><td>endTime</td><td>LONG</td><td>NO</td><td></td></tr></tbody></table>
 <blockquote>
 <ul>
 <li>若无 startime 和 endtime 限制， 则默认返回当前时间往前的limit值</li>

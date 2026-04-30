@@ -14,6 +14,10 @@
 - REJECTED：该状态表示条件订单被撮合引擎拒绝，例如保证金检查失败等情况。
 - EXPIRED：该状态表示条件订单被系统取消。例如，用户下了一个GTE\_GTC时效条件订单，但随后关闭了该标的的所有持仓，系统因此取消了该条件订单。
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-Algo-Order-Update#url-path "URL PATH的直接链接")
+
+`/private`
+
 ## 事件类型[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-Algo-Order-Update#%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B "事件类型的直接链接")
 
 `ALGO_UPDATE`

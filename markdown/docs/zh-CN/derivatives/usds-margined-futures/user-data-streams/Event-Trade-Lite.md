@@ -2,6 +2,10 @@
 
 精简交易推送相比原有的`ORDER_TRADE_UPDATE`流减少了数据延迟，但该交易推送仅推送和交易相关的字段。
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-Trade-Lite#url-path "URL PATH的直接链接")
+
+`/private`
+
 ## 事件类型[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-Trade-Lite#%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B "事件类型的直接链接")
 
 `TRADE_LITE`

@@ -4,6 +4,10 @@
 
 所有symbol24小时精简ticker信息.需要注意的是，只有发生变化的ticker更新才会被推送。
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/All-Market-Mini-Tickers-Stream#url-path "URL PATH的直接链接")
+
+`/market`
+
 ## Stream Name[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/All-Market-Mini-Tickers-Stream#stream-name "Stream Name的直接链接")
 
 `!miniTicker@arr`

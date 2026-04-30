@@ -19,7 +19,7 @@ GET `/futures/data/basis`
 | pair         | STRING | YES  | BTCUSDT                                         |
 | contractType | ENUM   | YES  | CURRENT\_QUARTER, NEXT\_QUARTER, PERPETUAL      |
 | period       | ENUM   | YES  | "5m","15m","30m","1h","2h","4h","6h","12h","1d" |
-| limit        | LONG   | YES  | Default 30,Max 500                              |
+| limit        | LONG   | NO   | Default 30,Max 500                              |
 | startTime    | LONG   | NO   |                                                 |
 | endTime      | LONG   | NO   |                                                 |
 

@@ -4,6 +4,10 @@
 
 获取交易对为综合指数的基础成分信息。 推送间隔1000毫秒(如有刷新)
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Composite-Index-Symbol-Information-Streams#url-path "URL PATH的直接链接")
+
+`/market`
+
 ## Stream Name[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Composite-Index-Symbol-Information-Streams#stream-name "Stream Name的直接链接")
 
 `<symbol>@compositeIndex`

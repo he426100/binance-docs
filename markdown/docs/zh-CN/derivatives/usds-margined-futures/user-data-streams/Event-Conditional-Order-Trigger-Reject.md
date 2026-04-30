@@ -4,6 +4,10 @@
 
 `CONDITIONAL_ORDER_TRIGGER_REJECT` 在止盈止损单触发后被拒绝时推送
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-Conditional-Order-Trigger-Reject#url-path "URL PATH的直接链接")
+
+`/private`
+
 ## 事件类型[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-Conditional-Order-Trigger-Reject#%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B "事件类型的直接链接")
 
 `CONDITIONAL_ORDER_TRIGGER_REJECT`

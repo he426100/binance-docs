@@ -20,7 +20,7 @@ GET `/fapi/v1/trade/asyn/id`
 | recvWindow | LONG   | NO   |             |
 | timestamp  | LONG   | YES  |             |
 
-> - 下载链接有效期：24小时。
+> - 下载链接有效期：7天。
 
 ## 响应示例[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/account/rest-api/Get-Futures-Trade-Download-Link-by-Id#%E5%93%8D%E5%BA%94%E7%A4%BA%E4%BE%8B "响应示例的直接链接")
 

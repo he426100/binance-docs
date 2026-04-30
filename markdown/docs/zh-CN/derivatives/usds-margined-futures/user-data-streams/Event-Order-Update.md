@@ -4,6 +4,10 @@
 
 当有新订单创建、订单有新成交或者新的状态变化时会推送此类事件 事件类型统一为 `ORDER_TRADE_UPDATE`
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-Order-Update#url-path "URL PATH的直接链接")
+
+`/private`
+
 **订单方向**
 
 - BUY 买入

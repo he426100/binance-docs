@@ -2,7 +2,11 @@
 
 ## 数据流描述[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/All-Market-Liquidation-Order-Streams#%E6%95%B0%E6%8D%AE%E6%B5%81%E6%8F%8F%E8%BF%B0 "数据流描述的直接链接")
 
-推送全市场强平订单快照信息 每个symbol，1000ms内至多仅推送一条最近的强平订单作为快照
+推送全市场强平订单快照信息 每个symbol，1000ms内至多仅推送一条最大的强平订单作为快照
+
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/All-Market-Liquidation-Order-Streams#url-path "URL PATH的直接链接")
+
+`/market`
 
 ## Stream Name[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/All-Market-Liquidation-Order-Streams#stream-name "Stream Name的直接链接")
 

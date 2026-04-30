@@ -20,8 +20,5 @@ POST `/fapi/v1/stock/contract`
 ## 响应示例[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/trade/rest-api/TradFi-Perps#%E5%93%8D%E5%BA%94%E7%A4%BA%E4%BE%8B "响应示例的直接链接")
 
 ```javascript
-{   
-   	"code": 200,
-	"msg": "success"
-}
+SUCCESS
 ```

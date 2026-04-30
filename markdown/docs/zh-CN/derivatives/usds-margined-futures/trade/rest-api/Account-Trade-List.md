@@ -36,7 +36,7 @@ GET `/fapi/v1/userTrades`
 [
   {
   	"buyer": false,	// 是否是买方
-  	"commission": "-0.07819010", // 手续费
+  	"commission": "0.07819010", // 手续费
   	"commissionAsset": "USDT", // 手续费计价单位
   	"id": 698759,	// 交易ID
   	"maker": false,	// 是否是挂单方

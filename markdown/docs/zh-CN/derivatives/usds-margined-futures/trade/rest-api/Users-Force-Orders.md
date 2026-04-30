@@ -26,6 +26,7 @@ GET `/fapi/v1/forceOrders`
 
 > - 如果没有传 "autoCloseType", 强平单和 ADL 减仓单都会被返回
 > - 如果没有传"startTime", 只会返回"endTime"之前 7 天内的数据
+> - 本接口仅支持最近90天数据的查询
 
 ## 响应示例[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/trade/rest-api/Users-Force-Orders#%E5%93%8D%E5%BA%94%E7%A4%BA%E4%BE%8B "响应示例的直接链接")
 

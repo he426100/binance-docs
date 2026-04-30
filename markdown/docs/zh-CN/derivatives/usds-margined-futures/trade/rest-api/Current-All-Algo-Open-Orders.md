@@ -2,7 +2,7 @@
 
 ## 接口描述[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/trade/rest-api/Current-All-Algo-Open-Orders#%E6%8E%A5%E5%8F%A3%E6%8F%8F%E8%BF%B0 "接口描述的直接链接")
 
-查看当前全部条件挂单
+查看某个交易对下当前所有的条件挂单（Algo / Conditional Order），包括 U 本位合约的止盈止损（TP/SL, Take Profit / Stop Loss）与追踪止损（Trailing Stop）订单。
 
 ## HTTP请求[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/trade/rest-api/Current-All-Algo-Open-Orders#http%E8%AF%B7%E6%B1%82 "HTTP请求的直接链接")
 

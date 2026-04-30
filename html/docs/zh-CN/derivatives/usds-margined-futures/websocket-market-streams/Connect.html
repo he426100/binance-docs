@@ -9,8 +9,8 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Binance Open Platform" href="/docs/zh-CN/opensearch.xml"><link rel="stylesheet" href="/docs/zh-CN/assets/css/styles.65c537d6.css">
-<script src="/docs/zh-CN/assets/js/runtime~main.21492072.js" defer="defer"></script>
-<script src="/docs/zh-CN/assets/js/main.3ead1c0d.js" defer="defer"></script>
+<script src="/docs/zh-CN/assets/js/runtime~main.d329ca17.js" defer="defer"></script>
+<script src="/docs/zh-CN/assets/js/main.9507de5d.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M86QHGF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -19,38 +19,43 @@
   
 <h1>市场数据连接</h1>
 <ul>
-<li>
-<p>本篇所列出的所有wss接口需用下列方式连接：</p>
+<li>本篇所列出的所有wss接口需用下列方式连接：
 <ul>
 <li>Base Url：<strong>wss://fstream.binance.com</strong></li>
-<li>订阅单一stream格式为 <strong>/ws/&lt;streamName&gt;</strong></li>
-<li>组合streams的URL格式为 <strong>/stream?streams=/&lt;streamName1&gt;/&lt;streamName2&gt;/&lt;streamName3&gt;</strong></li>
-<li>连接样例：</li>
-<li><code>wss://fstream.binance.com/ws/bnbusdt@aggTrade</code></li>
-<li><code>wss://fstream.binance.com/stream?streams=bnbusdt@aggTrade/btcusdt@markPrice</code></li>
+<li>三个分流入口，按数据类型分别接入：
+<ul>
+<li><strong>Public</strong>（高频公共行情/盘口数据）：<code>wss://fstream.binance.com/public</code></li>
+<li><strong>Market</strong>（常规公共市场数据）：<code>wss://fstream.binance.com/market</code></li>
+<li><strong>Private</strong>（用户私有数据）：<code>wss://fstream.binance.com/private</code></li>
 </ul>
 </li>
-<li>
-<p>订阅组合streams时，事件payload会以这样的格式封装 <strong>{&quot;stream&quot;:&quot;&lt;streamName&lt;&quot;,&quot;data&quot;:&lt;rawPayload&gt;}</strong></p>
+<li>支持两种访问模式：
+<ul>
+<li><code>ws</code> 模式：通过 URL path 拼接订阅流 — <strong>/ws/&lt;streamName&gt;</strong></li>
+<li><code>stream</code> 模式：通过 query 参数传入 — <strong>/stream?streams=&lt;streamName1&gt;/&lt;streamName2&gt;/&lt;streamName3&gt;</strong></li>
+</ul>
 </li>
-<li>
-<p>stream名称中所有交易对均为<strong>小写</strong>。</p>
+<li>连接样例：
+<ul>
+<li><code>wss://fstream.binance.com/market/ws/bnbusdt@aggTrade</code></li>
+<li><code>wss://fstream.binance.com/public/ws/bnbusdt@depth/ethusdt@depth</code></li>
+<li><code>wss://fstream.binance.com/market/stream?streams=bnbusdt@aggTrade/btcusdt@markPrice</code></li>
+</ul>
 </li>
-<li>
-<p>每个链接有效期不超过24小时，请妥善处理断线重连。</p>
+</ul>
 </li>
-<li>
-<p>服务端每3分钟会发送ping帧，客户端应当在10分钟内回复pong帧，否则服务端会主动断开链接。允许客户端发送不成对的pong帧(即客户端可以以高于15分钟每次的频率发送pong帧保持链接)。</p>
-</li>
-<li>
-<p>Websocket服务器每秒最多接受10个订阅消息。</p>
-</li>
-<li>
-<p>如果用户发送的消息超过限制，连接会被断开连接。反复被断开连接的IP有可能被服务器屏蔽。</p>
-</li>
-<li>
-<p>单个连接最多可以订阅 <strong>1024</strong> 个Streams。</p>
-</li>
-</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/zh-CN/derivatives/usds-margined-futures/trade/websocket-api/Cancel-Algo-Order"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">条件单撤销订单(TRADE)</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Live-Subscribing-Unsubscribing-to-streams"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">实时订阅/取消数据流</div></a></nav></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Binance.</div></div></div></footer></div>
+</ul>
+<blockquote>
+<p><strong>重要提示：</strong> 如果连接 URL 中未指定分流路径（<code>/public</code>、<code>/market</code> 或 <code>/private</code>），则该连接将仅能接收 <strong>Public</strong> 类别的数据。属于 <code>/market</code> 或 <code>/private</code> 类别的 stream 将不会推送数据。例如，<code>wss://fstream.binance.com/ws/btcusdt@depth</code> 仍可正常接收（因为 <code>@depth</code> 属于 <code>/public</code>），但 <code>wss://fstream.binance.com/ws/btcusdt@markPrice</code> 将无法接收（因为 <code>@markPrice</code> 属于 <code>/market</code>）。各 stream 与入口的完整映射关系及迁移说明，请参考 <a href="https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Important-WebSocket-Change-Notice" target="_blank" rel="noopener noreferrer">WebSocket Base URL 迁移公告</a>。</p>
+</blockquote>
+<ul>
+<li>订阅组合streams时，事件payload会以这样的格式封装 <strong>{&quot;stream&quot;:&quot;&lt;streamName&lt;&quot;,&quot;data&quot;:&lt;rawPayload&gt;}</strong></li>
+<li>stream名称中所有交易对均为<strong>小写</strong>。</li>
+<li>每个链接有效期不超过24小时，请妥善处理断线重连。</li>
+<li>服务端每3分钟会发送ping帧，客户端应当在10分钟内回复pong帧，否则服务端会主动断开链接。允许客户端发送不成对的pong帧(即客户端可以以高于15分钟每次的频率发送pong帧保持链接)。</li>
+<li>Websocket服务器每秒最多接受10个订阅消息。</li>
+<li>如果用户发送的消息超过限制，连接会被断开连接。反复被断开连接的IP有可能被服务器屏蔽。</li>
+<li>单个连接最多可以订阅 <strong>1024</strong> 个Streams。</li>
+</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/zh-CN/derivatives/usds-margined-futures/trade/websocket-api/Cancel-Algo-Order"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">条件单撤销订单(TRADE)</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Important-WebSocket-Change-Notice"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">WebSocket Base URL 迁移公告</div></a></nav></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Binance.</div></div></div></footer></div>
 </body>
 </html>

@@ -9,8 +9,8 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Binance Open Platform" href="/docs/zh-CN/opensearch.xml"><link rel="stylesheet" href="/docs/zh-CN/assets/css/styles.65c537d6.css">
-<script src="/docs/zh-CN/assets/js/runtime~main.21492072.js" defer="defer"></script>
-<script src="/docs/zh-CN/assets/js/main.3ead1c0d.js" defer="defer"></script>
+<script src="/docs/zh-CN/assets/js/runtime~main.d329ca17.js" defer="defer"></script>
+<script src="/docs/zh-CN/assets/js/main.9507de5d.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M86QHGF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -70,7 +70,7 @@
 <table><thead><tr><th>名称</th><th>类型</th><th>是否必 需</th><th>描述</th></tr></thead><tbody><tr><td>symbol</td><td>STRING</td><td>YES</td><td>交易对</td></tr><tr><td>fromId</td><td>LONG</td><td>NO</td><td>从包含fromID的成交开始返回结果</td></tr><tr><td>startTime</td><td>LONG</td><td>NO</td><td>从该时刻之后的成交记录开始返回结果</td></tr><tr><td>endTime</td><td>LONG</td><td>NO</td><td>返回该时刻为止的成交记录</td></tr><tr><td>limit</td><td>INT</td><td>NO</td><td>默认 500; 最大 1000.</td></tr></tbody></table>
 <blockquote>
 <ul>
-<li>接口仅支持查询最近1年的交易数据</li>
+<li>接口仅支持查询最近24小时的交易数据</li>
 <li>如果同时发送<code>startTime</code>和<code>endTime</code>，间隔必须小于一小时</li>
 <li>如果没有发送任何筛选参数(<code>fromId</code>, <code>startTime</code>, <code>endTime</code>)，默认返回最近的成交记录</li>
 <li>保险基金和自动减仓(ADL)成交不属于订单簿成交，故不会被归并聚合</li>

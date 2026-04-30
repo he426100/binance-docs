@@ -4,6 +4,10 @@
 
 同一价格、同一方向、同一时间(100ms计算)的trade会被聚合为一条.
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Aggregate-Trade-Streams#url-path "URL PATH的直接链接")
+
+`/market`
+
 ## Stream Name[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Aggregate-Trade-Streams#stream-name "Stream Name的直接链接")
 
 `<symbol>@aggTrade`

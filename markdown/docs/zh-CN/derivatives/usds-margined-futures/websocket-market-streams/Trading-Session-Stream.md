@@ -4,6 +4,10 @@
 
 每秒返回统金融合约标的资产（美股市场及大宗商品市场）的当前交易时段信息。不同标的市场的交易时段信息由不同消息推送。美股市场的交易时段包括 "PRE\_MARKET"、"REGULAR"、"AFTER\_MARKET"、"OVERNIGHT" 及 "NO\_TRADING"；大宗商品市场的交易时段包括 "REGULAR" 和 "NO\_TRADING"。
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Trading-Session-Stream#url-path "URL PATH的直接链接")
+
+`/market`
+
 ## Stream Name[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Trading-Session-Stream#stream-name "Stream Name的直接链接")
 
 `tradingSession`

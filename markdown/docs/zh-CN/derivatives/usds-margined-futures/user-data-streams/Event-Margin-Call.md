@@ -6,6 +6,10 @@
 - 此消息仅作为风险指导信息，不建议用于投资策略。
 - 在大波动市场行情下，不排除此消息发出的同时用户仓位已被强平的可能。
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-Margin-Call#url-path "URL PATH的直接链接")
+
+`/private`
+
 ## 事件类型[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/user-data-streams/Event-Margin-Call#%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B "事件类型的直接链接")
 
 `MARGIN_CALL`

@@ -9,8 +9,8 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Binance Open Platform" href="/docs/zh-CN/opensearch.xml"><link rel="stylesheet" href="/docs/zh-CN/assets/css/styles.65c537d6.css">
-<script src="/docs/zh-CN/assets/js/runtime~main.21492072.js" defer="defer"></script>
-<script src="/docs/zh-CN/assets/js/main.3ead1c0d.js" defer="defer"></script>
+<script src="/docs/zh-CN/assets/js/runtime~main.d329ca17.js" defer="defer"></script>
+<script src="/docs/zh-CN/assets/js/main.9507de5d.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M86QHGF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -99,8 +99,9 @@
 <li>RESULT</li>
 </ul>
 <p><strong>K线间隔:</strong></p>
-<p>m -&gt; 分  钟; h -&gt; 小时; d -&gt; 天; w -&gt; 周; M -&gt; 月</p>
+<p>s -&gt; 秒; m -&gt; 分钟; h -&gt; 小时; d -&gt; 天; w -&gt; 周; M -&gt; 月</p>
 <ul>
+<li>1s</li>
 <li>1m</li>
 <li>3m</li>
 <li>5m</li>
@@ -195,7 +196,7 @@
 <li>(<code>quantity</code>-<code>minQty</code>) % <code>stepSize</code> == 0</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_fMI7" id="market_lot_size-市价订单尺寸">MARKET_LOT_SIZE 市价订单尺寸<a class="hash-link" aria-label="MARKET_LOT_SIZE 市价订单尺寸的直接链接" title="MARKET_LOT_SIZE 市价订单尺寸的直接链接" href="/docs/zh-CN/derivatives/usds-margined-futures/common-definition#market_lot_size-市价订单尺寸">​</a></h3>
-<p>  参考LOT_SIZE，区别仅在于对市价单还是限价单生效</p>
+<p>参考LOT_SIZE，区别仅在于对市价单还是限价单生效</p>
 <h3 class="anchor anchorWithStickyNavbar_fMI7" id="max_num_orders-最多订单数">MAX_NUM_ORDERS 最多订单数<a class="hash-link" aria-label="MAX_NUM_ORDERS 最多订单数的直接链接" title="MAX_NUM_ORDERS 最多订单数的直接链接" href="/docs/zh-CN/derivatives/usds-margined-futures/common-definition#max_num_orders-最多订单数">​</a></h3>
 <blockquote>
 <p><strong>/exchangeInfo 响应中的格式:</strong></p>
@@ -227,7 +228,7 @@
 </blockquote>
 <div class="language-javascript codeBlockContainer_zbXh theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_RFcP"><pre tabindex="0" class="prism-code language-javascript codeBlock_hldk thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_aHhF"><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string-property property" style="color:#36acaa">&quot;filterType&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;MIN_NOTIONAL&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string-property property" style="color:#36acaa">&quot;notional&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;5.0&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre><div class="buttonGroup_oDVH"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_hTZm" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_xA0c"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_ZIiU"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>MIN_NOTIONAL过滤器定义了交易对订单所允许的最小名义价值(成交额)。
-订单的名义价值是<code>价格</code>*<code>数量</code> 。
+订单的名义价值是<code>价格</code>*<code>数量</code>。
 由于<code>MARKET</code>订单没有价格，因此会使用 mark price 计算。</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/zh-CN/derivatives/usds-margined-futures/websocket-api-general-info"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">WebSocket API基本信息</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/zh-CN/derivatives/usds-margined-futures/market-data/rest-api"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">测试服务器连通性PING</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_zXaw thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a class="table-of-contents__link toc-highlight" href="/docs/zh-CN/derivatives/usds-margined-futures/common-definition#术语解释">术语解释</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/zh-CN/derivatives/usds-margined-futures/common-definition#枚举定义">枚举定义</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/zh-CN/derivatives/usds-margined-futures/common-definition#交易对过滤器">交易对过滤器</a><ul><li><a class="table-of-contents__link toc-highlight" href="/docs/zh-CN/derivatives/usds-margined-futures/common-definition#lot_size-订单尺寸">LOT_SIZE 订单尺寸</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/zh-CN/derivatives/usds-margined-futures/common-definition#market_lot_size-市价订单尺寸">MARKET_LOT_SIZE 市价订单尺寸</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/zh-CN/derivatives/usds-margined-futures/common-definition#max_num_orders-最多订单数">MAX_NUM_ORDERS 最多订单数</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/zh-CN/derivatives/usds-margined-futures/common-definition#max_num_algo_orders-最多条件订单数">MAX_NUM_ALGO_ORDERS 最多条件订单数</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/zh-CN/derivatives/usds-margined-futures/common-definition#percent_price-价格振幅过滤器">PERCENT_PRICE 价格振幅过滤器</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/zh-CN/derivatives/usds-margined-futures/common-definition#min_notional-最小名义价值">MIN_NOTIONAL 最小名义价值</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Binance.</div></div></div></footer></div>
 </body>
 </html>

@@ -4,6 +4,10 @@
 
 按Symbol刷新的24小时精简ticker信息.
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Individual-Symbol-Mini-Ticker-Stream#url-path "URL PATH的直接链接")
+
+`/market`
+
 ## Stream Name[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Individual-Symbol-Mini-Ticker-Stream#stream-name "Stream Name的直接链接")
 
 `<symbol>@miniTicker`

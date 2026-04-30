@@ -26,7 +26,7 @@ POST `/fapi/v1/order/test`
 | callbackRate            | DECIMAL | NO   | 追踪止损回调比例，可取值范围\[0.1, 5],其中 1代表1% ,仅`TRAILING_STOP_MARKET` 需要此参数                                               |
 | timeInForce             | ENUM    | NO   | 有效方法                                                                                                          |
 | workingType             | ENUM    | NO   | stopPrice 触发类型: `MARK_PRICE`(标记价格), `CONTRACT_PRICE`(合约最新价). 默认 `CONTRACT_PRICE`                              |
-| priceProtect            | STRING  | NO   | 条件单触发保护："TRUE","FALSE", 默认"FALSE". 仅 `STOP`, `STOP_MARKET`, `TAKE_PROFIT`, `TAKE_PROFIT_MARKET` 需要此参数         |
+| priceProtect            | STRING  | NO   | 条件单触发保护："true","false", 默认"false". 仅 `STOP`, `STOP_MARKET`, `TAKE_PROFIT`, `TAKE_PROFIT_MARKET` 需要此参数         |
 | newOrderRespType        | ENUM    | NO   | "ACK", "RESULT", 默认 "ACK"                                                                                     |
 | priceMatch              | ENUM    | NO   | `OPPONENT`/ `OPPONENT_5`/ `OPPONENT_10`/ `OPPONENT_20`/`QUEUE`/ `QUEUE_5`/ `QUEUE_10`/ `QUEUE_20`；不能与price同时传 |
 | selfTradePreventionMode | ENUM    | NO   | `NONE` / `EXPIRE_TAKER`/ `EXPIRE_MAKER`/ `EXPIRE_BOTH`； 默认`NONE`                                              |

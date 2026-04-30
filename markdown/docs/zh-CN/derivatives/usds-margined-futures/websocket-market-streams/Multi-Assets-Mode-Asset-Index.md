@@ -1,48 +1,52 @@
-# 交易对信息信息流
+# 多资产模式资产汇率指数
 
 ## 数据流描述[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Multi-Assets-Mode-Asset-Index#%E6%95%B0%E6%8D%AE%E6%B5%81%E6%8F%8F%E8%BF%B0 "数据流描述的直接链接")
 
-Symbol状态更改时推送（上架/下架/bracket调整）; `bks`仅在bracket调整时推出。
+多资产模式资产价格指数
+
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Multi-Assets-Mode-Asset-Index#url-path "URL PATH的直接链接")
+
+`/market`
 
 ## Stream Name[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Multi-Assets-Mode-Asset-Index#stream-name "Stream Name的直接链接")
 
-`!contractInfo`
+`!assetIndex@arr`OR `<assetSymbol>@assetIndex`
 
 ## 更新速度[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Multi-Assets-Mode-Asset-Index#%E6%9B%B4%E6%96%B0%E9%80%9F%E5%BA%A6 "更新速度的直接链接")
 
-**实时**
+**1s**
 
 ## 响应示例[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Multi-Assets-Mode-Asset-Index#%E5%93%8D%E5%BA%94%E7%A4%BA%E4%BE%8B "响应示例的直接链接")
 
 ```javascript
-{
-    "e":"contractInfo",      // 事件类型
-    "E":1669356423908,       // 事件时间
-    "s":"IOTAUSDT",          // 交易对
-    "ps":"IOTAUSDT",         // 交易对标的
-    "ct":"PERPETUAL",        // 合约类型
-    "dt":4133404800000,      // 结算时间
-    "ot":1569398400000,      // 上架时间
-    "cs":"TRADING",          // 交易对状态
-    "bks":[
-        {
-            "bs":1,          // 层级
-            "bnf":0,         // 该层对应的名义价值下限
-            "bnc":5000,      // 该层对应的名义价值上限
-            "mmr":0.01,      // 该层对应的维持保证金率
-            "cf":0,          // 速算数
-            "mi":21,         // 该层杠杆下界
-            "ma":50          // 该层杠杆上界
-        },
-        {
-            "bs":2,
-            "bnf":5000,
-            "bnc":25000,
-            "mmr":0.025,
-            "cf":75,
-            "mi":11,
-            "ma":20
-        }
-    ]
-}
+[
+    {
+      "e":"assetIndexUpdate",
+      "E":1686749230000,
+      "s":"ADAUSD",         // asset index symbol
+      "i":"0.27462452",     // 指数价格
+      "b":"0.10000000",     // bid估值折扣
+      "a":"0.10000000",     // ask估值折扣
+      "B":"0.24716207",     // bid价格
+      "A":"0.30208698",     // ask价格
+      "q":"0.05000000",     // 自动兑换bid估值折扣
+      "g":"0.05000000",     // 自动兑换ask估值折扣
+      "Q":"0.26089330",     // 自动兑换bid价格
+      "G":"0.28835575"      // 自动兑换ask价格
+    },
+    {
+      "e":"assetIndexUpdate",
+      "E":1686749230000,
+      "s":"USDTUSD",
+      "i":"0.99987691",
+      "b":"0.00010000",
+      "a":"0.00010000",
+      "B":"0.99977692",
+      "A":"0.99997689",
+      "q":"0.00010000",
+      "g":"0.00010000",
+      "Q":"0.99977692",
+      "G":"0.99997689"
+    }
+]
 ```

@@ -22,7 +22,7 @@ GET `/fapi/v1/aggTrades`
 | endTime   | LONG   | NO   | 返回该时刻为止的成交记录       |
 | limit     | INT    | NO   | 默认 500; 最大 1000.   |
 
-> - 接口仅支持查询最近1年的交易数据
+> - 接口仅支持查询最近24小时的交易数据
 > - 如果同时发送`startTime`和`endTime`，间隔必须小于一小时
 > - 如果没有发送任何筛选参数(`fromId`, `startTime`, `endTime`)，默认返回最近的成交记录
 > - 保险基金和自动减仓(ADL)成交不属于订单簿成交，故不会被归并聚合

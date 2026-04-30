@@ -4,6 +4,10 @@
 
 实时推送指定交易对最优挂单信息
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Individual-Symbol-Book-Ticker-Streams#url-path "URL PATH的直接链接")
+
+`/public`
+
 ## Stream Name[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Individual-Symbol-Book-Ticker-Streams#stream-name "Stream Name的直接链接")
 
 `<symbol>@bookTicker`

@@ -36,35 +36,31 @@ GET `/fapi/v1/order`
 
 ```json
 {
-    "id": "605a6d20-6588-4cb9-afa0-b0ab087507ba",
-    "status": 200,
-    "result": {
-		"avgPrice": "0.00000",				// 平均成交价
-		"clientOrderId": "abc",				// 用户自定义的订单号
-		"cumQuote": "0",					// 成交金额
-		"executedQty": "0",					// 成交量
-		"orderId": 1573346959,				// 系统订单号
-		"origQty": "0.40",					// 原始委托数量
-		"origType": "TRAILING_STOP_MARKET",	// 触发前订单类型
-		"price": "0",						// 委托价格
-		"reduceOnly": false,				// 是否仅减仓
-		"side": "BUY",						// 买卖方向
-		"positionSide": "SHORT", 			// 持仓方向
-		"status": "NEW",					// 订单状态
-		"stopPrice": "9300",			    // 触发价，对`TRAILING_STOP_MARKET`无效
-		"closePosition": false,             // 是否条件全平仓
-		"symbol": "BTCUSDT",				// 交易对
-		"time": 1579276756075,				// 订单时间
-		"timeInForce": "GTC",				// 有效方法
-		"type": "TRAILING_STOP_MARKET",		// 订单类型
-		"activatePrice": "9020",			// 跟踪止损激活价格, 仅`TRAILING_STOP_MARKET` 订单返回此字段
-		"priceRate": "0.3",					// 跟踪止损回调比例, 仅`TRAILING_STOP_MARKET` 订单返回此字段
-		"updateTime": 1579276756075,		// 更新时间
-		"workingType": "CONTRACT_PRICE",    // 条件价格触发类型
-		"priceProtect": false,              // 是否开启条件单触发保护
-		"priceMatch": "NONE",               //盘口价格下单模式
-		"selfTradePreventionMode": "NONE",  //订单自成交保护模式
-		"goodTillDate": 0                   //订单TIF为GTD时的自动取消时间
-	}
+	"avgPrice": "0.00000",				// 平均成交价
+	"clientOrderId": "abc",				// 用户自定义的订单号
+	"cumQuote": "0",					// 成交金额
+	"executedQty": "0",					// 成交量
+	"orderId": 1573346959,				// 系统订单号
+	"origQty": "0.40",					// 原始委托数量
+	"origType": "TRAILING_STOP_MARKET",	// 触发前订单类型
+	"price": "0",						// 委托价格
+	"reduceOnly": false,				// 是否仅减仓
+	"side": "BUY",						// 买卖方向
+	"positionSide": "SHORT", 			// 持仓方向
+	"status": "NEW",					// 订单状态
+	"stopPrice": "9300",			    // 触发价，对`TRAILING_STOP_MARKET`无效
+	"closePosition": false,             // 是否条件全平仓
+	"symbol": "BTCUSDT",				// 交易对
+	"time": 1579276756075,				// 订单时间
+	"timeInForce": "GTC",				// 有效方法
+	"type": "TRAILING_STOP_MARKET",		// 订单类型
+	"activatePrice": "9020",			// 跟踪止损激活价格, 仅`TRAILING_STOP_MARKET` 订单返回此字段
+	"priceRate": "0.3",					// 跟踪止损回调比例, 仅`TRAILING_STOP_MARKET` 订单返回此字段
+	"updateTime": 1579276756075,		// 更新时间
+	"workingType": "CONTRACT_PRICE",    // 条件价格触发类型
+	"priceProtect": false,              // 是否开启条件单触发保护
+	"priceMatch": "NONE",               //盘口价格下单模式
+	"selfTradePreventionMode": "NONE",  //订单自成交保护模式
+	"goodTillDate": 0                   //订单TIF为GTD时的自动取消时间
 }
 ```

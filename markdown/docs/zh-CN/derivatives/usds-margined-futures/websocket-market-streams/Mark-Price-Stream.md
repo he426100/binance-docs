@@ -4,6 +4,10 @@
 
 最新标记价格
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Mark-Price-Stream#url-path "URL PATH的直接链接")
+
+`/market`
+
 ## Stream Name[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Mark-Price-Stream#stream-name "Stream Name的直接链接")
 
 `<symbol>@markPrice` 或 `<symbol>@markPrice@1s`
@@ -20,6 +24,7 @@
     "E": 1562305380000,      	// 事件时间
     "s": "BTCUSDT",          	// 交易对
     "p": "11794.15000000",   	// 标记价格
+    "ap": "11794.15000000",   // 标记价格移动平均
     "i": "11784.62659091",		// 现货指数价格
     "P": "11784.25641265",		// 预估结算价,仅在结算前最后一小时有参考价值
     "r": "0.00038167",       	// 资金费率

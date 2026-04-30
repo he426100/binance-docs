@@ -108,7 +108,7 @@ NONE
     				"multiplierDecimal": "4"
     			}
    			],
- 			"OrderType": [ // 订单类型
+ 			"orderTypes": [ // 订单类型
    				"LIMIT",  // 限价单
    				"MARKET",  // 市价单
    				"STOP", // 止损单

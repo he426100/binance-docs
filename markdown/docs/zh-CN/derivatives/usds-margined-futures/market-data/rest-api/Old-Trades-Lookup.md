@@ -21,7 +21,7 @@ GET `/fapi/v1/historicalTrades`
 | fromId | LONG   | NO   | 从哪一条成交id开始返回. 缺省返回最近的成交记录 |
 
 > - 仅返回订单簿成交，即不会返回保险基金和自动减仓(ADL)成交
-> - 仅支持返回最近3个月的数据
+> - 仅支持返回最近1个月的数据
 
 ## 响应示例[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/market-data/rest-api/Old-Trades-Lookup#%E5%93%8D%E5%BA%94%E7%A4%BA%E4%BE%8B "响应示例的直接链接")
 

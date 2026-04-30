@@ -4,6 +4,10 @@
 
 orderbook 的变化部分，推送间隔 250 毫秒,500 毫秒，100 毫秒(如有刷新)
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Diff-Book-Depth-Streams#url-path "URL PATH的直接链接")
+
+`/public`
+
 ## Stream Name[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Diff-Book-Depth-Streams#stream-name "Stream Name的直接链接")
 
 `<symbol>@depth` OR `<symbol>@depth@500ms` OR `<symbol>@depth@100ms`

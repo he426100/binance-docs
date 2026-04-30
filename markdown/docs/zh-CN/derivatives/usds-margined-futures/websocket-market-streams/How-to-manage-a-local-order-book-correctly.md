@@ -1,6 +1,6 @@
 # 如何正确在本地维护一个orderbook副本
 
-1. 订阅 **wss://fstream.binance.com/stream?streams=btcusdt@depth**
+1. 订阅 **wss://fstream.binance.com/public/stream?streams=btcusdt@depth**
 2. 开始缓存收到的更新。同一个价位，后收到的更新覆盖前面的。
 3. 访问Rest接口 \*\*[https://fapi.binance.com/fapi/v1/depth?symbol=BTCUSDT&limit=1000\*\*获得一个1000档的深度快照](https://fapi.binance.com/fapi/v1/depth?symbol=BTCUSDT&limit=1000%2A%2A%E8%8E%B7%E5%BE%97%E4%B8%80%E4%B8%AA1000%E6%A1%A3%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%BF%AB%E7%85%A7)
 4. 将目前缓存到的信息中`u`&lt; 步骤3中获取到的快照中的`lastUpdateId`的部分丢弃(丢弃更早的信息，已经过期)。

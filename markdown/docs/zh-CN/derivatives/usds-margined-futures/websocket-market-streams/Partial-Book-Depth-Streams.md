@@ -4,6 +4,10 @@
 
 推送有限档深度信息。levels表示几档买卖单信息, 可选 5/10/20档
 
+## URL PATH[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Partial-Book-Depth-Streams#url-path "URL PATH的直接链接")
+
+`/public`
+
 ## Stream Name[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/websocket-market-streams/Partial-Book-Depth-Streams#stream-name "Stream Name的直接链接")
 
 `<symbol>@depth<levels>` 或 `<symbol>@depth<levels>@500ms` 或 `<symbol>@depth<levels>@100ms`.

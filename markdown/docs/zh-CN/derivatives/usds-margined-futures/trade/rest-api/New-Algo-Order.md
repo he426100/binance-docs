@@ -2,7 +2,7 @@
 
 ## 接口描述[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/trade/rest-api/New-Algo-Order#%E6%8E%A5%E5%8F%A3%E6%8F%8F%E8%BF%B0 "接口描述的直接链接")
 
-下条件单
+下新的条件单（Algo / Conditional Order），用于 U 本位合约的\*\*止盈止损（TP/SL, Take Profit / Stop Loss）\*\*和追踪止损（Trailing Stop）。在 `algoType=CONDITIONAL` 下，支持的订单类型为 `STOP_MARKET`、`TAKE_PROFIT_MARKET`、`STOP`、`TAKE_PROFIT`、`TRAILING_STOP_MARKET`。
 
 ## HTTP请求[​](https://developers.binance.com/docs/zh-CN/derivatives/usds-margined-futures/trade/rest-api/New-Algo-Order#http%E8%AF%B7%E6%B1%82 "HTTP请求的直接链接")
 
@@ -28,7 +28,7 @@ IP rate limit(x-mbx-used-weight-1m)为0
 | workingType             | ENUM    | NO   | 触发类型: `MARK_PRICE`(标记价格), `CONTRACT_PRICE`(合约最新价). 默认 `CONTRACT_PRICE`                                        |
 | priceMatch              | ENUM    | NO   | `OPPONENT`/ `OPPONENT_5`/ `OPPONENT_10`/ `OPPONENT_20`/`QUEUE`/ `QUEUE_5`/ `QUEUE_10`/ `QUEUE_20`；不能与price同时传 |
 | closePosition           | STRING  | NO   | `true`, `false`；触发后全部平仓，仅支持`STOP_MARKET`和`TAKE_PROFIT_MARKET`；不与`quantity`合用；自带只平仓效果，不与`reduceOnly` 合用        |
-| priceProtect            | STRING  | NO   | 条件单触发保护："TRUE","FALSE", 默认"FALSE".                                                                            |
+| priceProtect            | STRING  | NO   | 条件单触发保护："true","false", 默认"false".                                                                            |
 | reduceOnly              | STRING  | NO   | `true`, `false`; 非双开模式下默认`false`；双开模式下不接受此参数； 使用`closePosition`不支持此参数。                                        |
 | activatePrice           | DECIMAL | NO   | 追踪止损激活价格，仅`TRAILING_STOP_MARKET` 需要此参数, 默认为下单当前市场价格(支持不同`workingType`)                                        |
 | callbackRate            | DECIMAL | NO   | 追踪止损回调比例，可取值范围\[0.1, 10],其中 1代表1% ,仅`TRAILING_STOP_MARKET` 需要此参数                                              |
